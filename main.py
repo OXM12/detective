@@ -18,7 +18,8 @@ def start(message):
     first = types.KeyboardButton("Qahvaxonadagi qotillik")
     second = types.KeyboardButton("*Bo'sh*")
     three = types.KeyboardButton("*Bo'sh*")
-    bot.send_message(message.chat.id, f"Salom, detektiv {message.from_user.first_name}. Ishlar ko'payib ketgan. Xo'sh, qay biridan boshlaymiz?")
+    menu_but.add(first, second, three)
+    bot.send_message(message.chat.id, f"Salom, detektiv {message.from_user.first_name}. Ishlar ko'payib ketgan. Xo'sh, qay biridan boshlaymiz?", reply_markup=menu_but)
 
 @bot.message_handler()
 def menu_answer(message):
