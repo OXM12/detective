@@ -14,7 +14,20 @@ server = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, f"Salom!")
+    menu_but = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    first = types.KeyboardButton("Qahvaxonadagi qotillik")
+    second = types.KeyboardButton("*Bo'sh*")
+    three = types.KeyboardButton("*Bo'sh*")
+    bot.send_message(message.chat.id, f"Salom, detektiv {message.from_user.first_name}. Ishlar ko'payib ketgan. Xo'sh, qay biridan boshlaymiz?")
+
+@bot.message_handler()
+def menu_answer(message):
+    if message.text == "Qahvaxonadagi qotillik":
+        bot.send_message(message.chat.id, f"Hali tayyormas🤔")
+    elif message.text == "*Bo'sh*":
+        bot.send_message(message.chat.id, f"Hali tayyormas🤔")
+
+
 
 
 
