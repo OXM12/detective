@@ -32,18 +32,6 @@ def menu_answer(message):
 
 
 
-def job():
-    bot.sendMessage(chat_id=message.chat.id, text="Hello")
-
-schedule.every(5).seconds.do(job)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
-
-
-
-
 
 
 
