@@ -36,7 +36,7 @@ def test_send_message():
         assert ret_msg.message_id 
 
 
-if current_time=='9:39:00':
+if current_time=='9:43:00':
     test_send_message()
 
 
