@@ -28,7 +28,7 @@ def menu_answer(message):
     elif message.text == "*Bo'sh*":
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
     elif message.text == "Bo`yalgan qo`g`irchoqlar":
-        bot.send_photo(message.chat.id, photo="images/doll_blood.jpeg", caption='It works!')
+        bot.send_photo(message.chat.id, photo=open("images/doll_blood.jpeg", 'rb'), caption='It works!')
 
 
 
