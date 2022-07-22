@@ -1,5 +1,6 @@
 from email import message
 import os
+from colorama import Cursor
 import telebot
 import schedule
 from telebot import types
@@ -7,6 +8,7 @@ from flask import Flask, request
 from threading import Thread
 from datetime import datetime
 import time
+import sqlite3
 
 TOKEN = '5496930108:AAGNV22359NcshQ2CJSngqz0Rd3fmjJyMmM'
 APP_URL = f'https://detective-1.herokuapp.com/{TOKEN}'
@@ -16,6 +18,19 @@ server = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    connect = sqlite3.connect('users.db')
+    cursor = connect.cursor()
+    
+    cursor.execute("""CREATE TABLE IF NOT EXIST user_id(
+        id INTEGER 
+        )""")
+    
+    connect.commit()
+    
+    users_id = [message.chat.id]
+    cursor.execute("INSERT INTO user_id VALUES(?);", users_id)
+    connect.commit()
+    
     menu_but = types.ReplyKeyboardMarkup(resize_keyboard=True)
     first = types.KeyboardButton("Qahvaxonadagi qotillik")
     second = types.KeyboardButton("*Bo'sh*")
