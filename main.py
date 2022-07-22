@@ -33,7 +33,7 @@ def start(message):
     
     menu_but = types.ReplyKeyboardMarkup(resize_keyboard=True)
     first = types.KeyboardButton("Qahvaxonadagi qotillik")
-    second = types.KeyboardButton("*Bo'sh*")
+    second = types.KeyboardButton("Bo'yalgan qo'g'irchoqlar")
     three = types.KeyboardButton("*Bo'sh*")
     menu_but.add(first, second, three)
     bot.send_message(message.chat.id, f"Salom, detektiv {message.from_user.first_name}. Ishlar ko'payib ketgan. Xo'sh, qay biridan boshlaymiz?", reply_markup=menu_but)
@@ -44,6 +44,9 @@ def menu_answer(message):
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
     elif message.text == "*Bo'sh*":
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
+    elif message.text == "Bo'yalgan qo'g'irchoqlar":
+        doll = open("images/doll_blood.jpg", 'rb')
+        bot.send_photo(message.chat.id, doll, f"'PostMail' jurnali xabar bermoqda:\n1 haftadan buyon shahar binolarining orqa tarafidan qismlarga ajratib tashlanib, qizil rangga bo'yalgan qo'g'irchoqlar topilmoqda. Bu haftaning o'zida Markaziy bank va 'Morning' qahvaxonasining orqa devoridan topildi. Politsiya 'bo`yoqchi'ni topishga harakat qilmoqda.")
 
 
 
