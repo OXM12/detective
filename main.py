@@ -1,14 +1,10 @@
 from email import message
 import os
-from colorama import Cursor
 import telebot
 import schedule
 from telebot import types
 from flask import Flask, request
-from threading import Thread
-from datetime import datetime
-import time
-import sqlite3
+
 
 TOKEN = '5496930108:AAGNV22359NcshQ2CJSngqz0Rd3fmjJyMmM'
 APP_URL = f'https://detective-1.herokuapp.com/{TOKEN}'
@@ -20,7 +16,7 @@ server = Flask(__name__)
 def start(message):
     menu_but = types.ReplyKeyboardMarkup(resize_keyboard=True)
     first = types.KeyboardButton("Qahvaxonadagi qotillik")
-    second = types.KeyboardButton("Bo'yalgan qo'g'irchoqlar")
+    second = types.KeyboardButton("*Bo'sh*")
     three = types.KeyboardButton("*Bo'sh*")
     menu_but.add(first, second, three)
     bot.send_message(message.chat.id, f"Salom, detektiv {message.from_user.first_name}. Ishlar ko'payib ketgan. Xo'sh, qay biridan boshlaymiz?", reply_markup=menu_but)
@@ -31,6 +27,16 @@ def menu_answer(message):
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
     elif message.text == "*Bo'sh*":
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
+
+
+
+
+
+
+
+
+
+
 
 
 
