@@ -18,19 +18,6 @@ server = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    connect = sqlite3.connect('users.db')
-    cursor = connect.cursor()
-    
-    cursor.execute("""CREATE TABLE IF NOT EXIST user_id(
-        id INTEGER 
-        )""")
-    
-    connect.commit()
-    
-    users_id = [message.chat.id]
-    cursor.execute("INSERT INTO user_id VALUES(?);", users_id)
-    connect.commit()
-    
     menu_but = types.ReplyKeyboardMarkup(resize_keyboard=True)
     first = types.KeyboardButton("Qahvaxonadagi qotillik")
     second = types.KeyboardButton("Bo'yalgan qo'g'irchoqlar")
