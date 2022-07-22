@@ -5,7 +5,7 @@ import schedule
 from telebot import types
 from flask import Flask, request
 from threading import Thread
-import datetime
+from datetime import datetime
 
 TOKEN = '5496930108:AAGNV22359NcshQ2CJSngqz0Rd3fmjJyMmM'
 APP_URL = f'https://detective-1.herokuapp.com/{TOKEN}'
@@ -38,7 +38,7 @@ def test_send_message():
         assert ret_msg.message_id 
 
 
-if current_time =='9:43:00':
+if current_time =='9:45:00':
     test_send_message()
 
 
