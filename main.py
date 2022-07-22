@@ -37,7 +37,7 @@ def menu_answer(message):
         kinoteatr = types.InlineKeyboardButton("Kinoteatr")
         goodlife = types.InlineKeyboardButton("'Good life' savdo markazi")
         doll_menu.add(police, dalil, ekspertiza, bank, qahvaxona, kinoteatr, goodlife)
-        bot.send_photo(message.chat.id, photo=open("/images/doll_blood.jpeg", 'rb'), caption= 'Its work?', reply_markup=doll_menu)
+        bot.send_photo(message.chat.id, photo=open("images/doll_blood.jpeg", 'rb'), caption= 'Its work?', reply_markup=doll_menu)
         # bot.send_photo(message.chat.id, photo=open("/images/police.jpg", 'rb'), caption= "PostMail' xabar beryapti:\nPolitsiya hali hamon 'bo`yoqchi'ni tutolmadi. Detektivlar esa manzillar orasidagi bog`liqlikni topisholmayapti. 3 kunichida 'Goodlife' savdo markazi va uning oldidagi kinoteatrning orqa devoridan yana bitta 'qurbon' topildi. Jurnalistlarning turli savollariga politsiya qisqagina javob berdi:<<Hozircha aniq tafsilotlarimiz yo`q, lekin detektivlarimiz qo`g`irchoqlar faqat orqa devorlardan topilayotganini aniqlashdi. Ekspertiza xulosalarini esa oshkor qilish niyatimiz yo`q!>>\nBu holat aholi o`rtasida vahima uyg'otmoqda. Umid qilamizki shahar detektivi 'bo`yoqchi'ni qo`lga oladi... ")
 
 
