@@ -29,7 +29,7 @@ def menu_answer(message):
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
     elif message.text == "Bo`yalgan qo`g`irchoqlar":
         bot.send_photo(message.chat.id, photo=open("/images/doll_blood.jpeg", 'rb'), caption= 'Its work?')
-        # bot.send_photo(message.chat.id, photo=open("/images/police.jpg", 'rb'), caption= "PostMail' xabar beryapti:\nPolitsiya hali hamon 'bo`yoqchi'ni tutolmadi. Detektivlar esa manzillar orasidagi bog`liqlikni topisholmayapti. 3 kunichida 'Goodlife' savdo markazi va uning oldidagi kinoteatrning orqa devoridan yana bitta 'qurbon' topildi. Jurnalistlarning turli savollariga politsiya qisqagina javob berdi:<<Hozircha aniq tafsilotlarimiz yo`q, lekin detektivlarimiz qo`g`irchoqlar faqat orqa devorlardan topilayotganini aniqlashdi. Ekspertiza xulosalarini esa oshkor qilish niyatimiz yo`q!>>\nBu holat aholi o`rtasida vahima uyg'otmoqda. Umid qilamizki shahar detektivi 'bo`yoqchi'ni qo`lga oladi... ")
+        bot.send_photo(message.chat.id, photo=open("/images/police.jpg", 'rb'), caption= "PostMail' xabar beryapti:\nPolitsiya hali hamon 'bo`yoqchi'ni tutolmadi. Detektivlar esa manzillar orasidagi bog`liqlikni topisholmayapti. 3 kunichida 'Goodlife' savdo markazi va uning oldidagi kinoteatrning orqa devoridan yana bitta 'qurbon' topildi. Jurnalistlarning turli savollariga politsiya qisqagina javob berdi:<<Hozircha aniq tafsilotlarimiz yo`q, lekin detektivlarimiz qo`g`irchoqlar faqat orqa devorlardan topilayotganini aniqlashdi. Ekspertiza xulosalarini esa oshkor qilish niyatimiz yo`q!>>\nBu holat aholi o`rtasida vahima uyg'otmoqda. Umid qilamizki shahar detektivi 'bo`yoqchi'ni qo`lga oladi... ")
 
 
 
