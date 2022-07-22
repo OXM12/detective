@@ -6,6 +6,7 @@ from telebot import types
 from flask import Flask, request
 from threading import Thread
 from datetime import datetime
+import time
 
 TOKEN = '5496930108:AAGNV22359NcshQ2CJSngqz0Rd3fmjJyMmM'
 APP_URL = f'https://detective-1.herokuapp.com/{TOKEN}'
@@ -29,17 +30,16 @@ def menu_answer(message):
     elif message.text == "*Bo'sh*":
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
 
-now = datetime.now()
-current_time = now.strftime("%H:%M:%S")
-
-def test_send_message():
-        text = 'CI Test Message'
-        ret_msg = bot.send_message(message.chat.id, text)
-        assert ret_msg.message_id 
 
 
-if current_time =='9:47:00':
-    test_send_message()
+def job():
+    bot.sendMessage(chat_id=message.chat.id, text="Hello")
+
+schedule.every(5).seconds.do(job)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 
 
