@@ -4,6 +4,7 @@ import telebot
 import schedule
 from telebot import types
 from flask import Flask, request
+from threading import Thread
 
 
 TOKEN = '5496930108:AAGNV22359NcshQ2CJSngqz0Rd3fmjJyMmM'
@@ -29,10 +30,14 @@ def menu_answer(message):
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
 
 
+def test_send_message():
+        text = 'CI Test Message'
+        ret_msg = bot.send_message(message.chat.id, text)
+        assert ret_msg.message_id 
 
 
-
-
+if current_time=='9:39:00':
+    test_send_message()
 
 
 
