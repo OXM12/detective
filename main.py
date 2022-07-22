@@ -31,12 +31,6 @@ def menu_answer(message):
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
     elif message.text == "*Bo'sh*":
         bot.send_message(message.chat.id, f"Hali tayyormas🤔")
-    # elif message.text == "Bo'yalgan qo'g'irchoqlar":
-    #     doll = open("images/doll_blood.jpg", 'rb')
-    #     bot.send_photo(message.chat.id, doll, f"'PostMail' jurnali xabar bermoqda:\n1 haftadan buyon shahar binolarining orqa tarafidan qismlarga ajratib tashlanib, qizil rangga bo'yalgan qo'g'irchoqlar topilmoqda. Bu haftaning o'zida Markaziy bank va 'Morning' qahvaxonasining orqa devoridan topildi. Politsiya 'bo`yoqchi'ni topishga harakat qilmoqda.")
-
-
-
 
 
 
