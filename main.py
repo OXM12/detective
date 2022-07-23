@@ -32,7 +32,6 @@ def menu_answer(call):
         elif call.data == "qogirchoq":
             with open('./images/doll_blood.jpeg', 'rb') as f1:
                 doll_menu = types.InlineKeyboardMarkup(row_width=2)
-                imagedoll = open("./images/doll_blood", 'rb')
                 police = types.InlineKeyboardButton("Politsiya mahkamasi", callback_data="police")
                 dalil = types.InlineKeyboardButton("Dalillar ombori", callback_data="dalil")
                 ekspertiza = types.InlineKeyboardButton("Ekspertiza", callback_data="ekspertiza")
