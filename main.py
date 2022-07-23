@@ -40,7 +40,7 @@ def menu_answer(call):
                 kinoteatr = types.InlineKeyboardButton("Kinoteatr", callback_data="kinoteatr")
                 goodlife = types.InlineKeyboardButton("'Good life' savdo markazi", callback_data="goodlife")
                 doll_menu.add(police, dalil, ekspertiza, bank, qahvaxona, kinoteatr, goodlife)
-                bot.edit_message_media(message.chat.id, media=open("./images/doll_blood.jpeg", 'rb'), reply_markup=doll_menu)
+                bot.edit_message_media(media=telebot.types.InputMedia(type='photo', media=open("./images/doll_blood.jpeg", 'rb'), caption = "'PostMail' jurnali xabar bermoqda:\n1 haftadan buyon shahar binolarining orqa tarafidan qismlarga ajratib tashlanib, qizil rangga bo'yalgan qo'g'irchoqlar topilmoqda. Bu haftaning o'zida Markaziy bank va 'Morning' qahvaxonasining orqa devoridan topildi. Politsiya 'bo'yoqchi'ni topishga harakat qilmoqda."), reply_markup=doll_menu)
                 bot.edit_message_caption(chat_id=call.message.chat.id, message_id=call.message.id, caption="'PostMail' jurnali xabar bermoqda:\n1 haftadan buyon shahar binolarining orqa tarafidan qismlarga ajratib tashlanib, qizil rangga bo'yalgan qo'g'irchoqlar topilmoqda. Bu haftaning o'zida Markaziy bank va 'Morning' qahvaxonasining orqa devoridan topildi. Politsiya 'bo'yoqchi'ni topishga harakat qilmoqda.")
 
 
