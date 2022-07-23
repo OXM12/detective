@@ -32,6 +32,7 @@ def menu_answer(call):
         elif call.data == "qogirchoq":
             with open('./images/doll_blood.jpeg', 'rb') as f1:
                 doll_menu = types.InlineKeyboardMarkup(row_width=2)
+                imagedoll = open("./images/doll_blood", 'rb')
                 police = types.InlineKeyboardButton("Politsiya mahkamasi", callback_data="police")
                 dalil = types.InlineKeyboardButton("Dalillar ombori", callback_data="dalil")
                 ekspertiza = types.InlineKeyboardButton("Ekspertiza", callback_data="ekspertiza")
@@ -41,7 +42,7 @@ def menu_answer(call):
                 goodlife = types.InlineKeyboardButton("'Good life' savdo markazi", callback_data="goodlife")
                 doll_menu.add(police, dalil, ekspertiza, bank, qahvaxona, kinoteatr, goodlife)
                 bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.id, text = "'PostMail' jurnali xabar bermoqda:\n1 haftadan buyon shahar binolarining orqa tarafidan qismlarga ajratib tashlanib, qizil rangga bo'yalgan qo'g'irchoqlar topilmoqda. Bu haftaning o'zida Markaziy bank va 'Morning' qahvaxonasining orqa devoridan topildi. Politsiya 'bo'yoqchi'ni topishga harakat qilmoqda.")
-                bot.send_message(chat_id=call.message.chat.id, message_id=call.message.id, text = "'PostMail' xabar beryapti:\nPolitsiya hali hamon 'bo`yoqchi'ni tutolmadi. Detektivlar esa manzillar orasidagi bog`liqlikni topisholmayapti. 3 kunichida 'Goodlife' savdo markazi va uning oldidagi kinoteatrning orqa devoridan yana bitta 'qurbon' topildi. Jurnalistlarning turli savollariga politsiya qisqagina javob berdi:<<Hozircha aniq tafsilotlarimiz yo`q, lekin detektivlarimiz qo`g`irchoqlar faqat orqa devorlardan topilayotganini aniqlashdi. Ekspertiza xulosalarini esa oshkor qilish niyatimiz yo`q!>>\nBu holat aholi o`rtasida vahima uyg'otmoqda. Umid qilamizki shahar detektivi 'bo`yoqchi'ni qo`lga oladi... ", reply_markup=doll_menu)
+                bot.send_photo(message.chat.id, imagedoll, caption= "'PostMail' xabar beryapti:\nPolitsiya hali hamon 'bo`yoqchi'ni tutolmadi. Detektivlar esa manzillar orasidagi bog`liqlikni topisholmayapti. 3 kunichida 'Goodlife' savdo markazi va uning oldidagi kinoteatrning orqa devoridan yana bitta 'qurbon' topildi. Jurnalistlarning turli savollariga politsiya qisqagina javob berdi:<<Hozircha aniq tafsilotlarimiz yo`q, lekin detektivlarimiz qo`g`irchoqlar faqat orqa devorlardan topilayotganini aniqlashdi. Ekspertiza xulosalarini esa oshkor qilish niyatimiz yo`q!>>\nBu holat aholi o`rtasida vahima uyg'otmoqda. Umid qilamizki shahar detektivi 'bo`yoqchi'ni qo`lga oladi... ", reply_markup=doll_menu)
 
 
 
