@@ -1,5 +1,6 @@
 from email import message
 import os
+import sqlite3
 from subprocess import call
 import telebot
 import schedule
@@ -13,6 +14,13 @@ bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
 
+conn = sqlite3.connect('db/database.db', check_same_thread=False)
+cursor = conn.cursor()
+
+def db_table_val(user_id: int, user_name: str, user_surname: str, username: str):
+    cursor.execute('INSERT INTO test (user_id, user_name, user_surname, username) VALUES (?, ?, ?, ?)', (user_id, user_name, user_surname, username))
+    conn.commit()
+
 @bot.message_handler(commands=['start'])
 def start(message):
     menu_but = types.InlineKeyboardMarkup(row_width=1)
@@ -22,6 +30,13 @@ def start(message):
     menu_but.add(first, second, three)
     bot.send_photo(message.chat.id, photo=open("./images/detective.jpg", 'rb'), caption = f"Salom, detektiv {message.from_user.first_name}. Ishlar ko'payib ketgan. Xo'sh, qay biridan boshlaymiz?", reply_markup=menu_but)
 
+
+    us_id = message.from_user.id
+    us_name = message.from_user.first_name
+    us_sname = message.from_user.last_name
+    username = message.from_user.username
+    db_table_val(user_id=us_id, user_name=us_name, user_surname=us_sname, username=username)
+    
 @bot.callback_query_handler(func=lambda call:True)
 def menu_answer(call):
     if call.message:
