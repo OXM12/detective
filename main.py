@@ -14,7 +14,7 @@ bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
 
-conn = sqlite3.connect('db/database.db', check_same_thread=False)
+conn = sqlite3.connect('db/user_db.db', check_same_thread=False)
 cursor = conn.cursor()
 
 def db_table_val(user_id: int, user_name: str, user_surname: str, username: str):
