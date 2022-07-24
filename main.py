@@ -2,27 +2,36 @@ from email import message
 import os
 import sqlite3
 from subprocess import call
+from unittest import result
 import telebot
+import psycopg2
+import config
+import logging
+from config import *
 import schedule
 from telebot import types
 from flask import Flask, request
 
 
-TOKEN = '5496930108:AAGNV22359NcshQ2CJSngqz0Rd3fmjJyMmM'
-APP_URL = f'https://detective-1.herokuapp.com/{TOKEN}'
+
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
+logger = telebot.logger
+logger.setLevel(logging.DEBUG)
 
-
-conn = sqlite3.connect('db/user_db.db', check_same_thread=False)
-cursor = conn.cursor()
-
-def db_table_val(user_id: int, user_name: str, user_surname: str, username: str):
-    cursor.execute('INSERT INTO test (user_id, user_name, user_surname, username) VALUES (?, ?, ?, ?)', (user_id, user_name, user_surname, username))
-    conn.commit()
+db_connection = psycopg2.connect(DB_URI, sslmode="require")
+db_object = db_connection.cursor
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    id = message.from_user.id
+    username = message.from_user.username 
+    db_object.execute(f"SELECT id FROM users WHERE id = {id}")
+    result = db_object.fetchone()
+    
+    if not result:
+        db_object.execute("INSERT INTO users(id, username, messages) VALUES (%s, %s, %s)"), (id, username, 0)
+        db_connection.commit()
     menu_but = types.InlineKeyboardMarkup(row_width=1)
     first = types.InlineKeyboardButton("Qahvaxonadagi qotillik", callback_data="qahvaxona")
     second = types.InlineKeyboardButton("Bo`yalgan qo`g`irchoqlar", callback_data="qogirchoq")
@@ -30,12 +39,6 @@ def start(message):
     menu_but.add(first, second, three)
     bot.send_photo(message.chat.id, photo=open("./images/detective.jpg", 'rb'), caption = f"Salom, detektiv {message.from_user.first_name}. Ishlar ko'payib ketgan. Xo'sh, qay biridan boshlaymiz?", reply_markup=menu_but)
 
-
-    us_id = message.from_user.id
-    us_name = message.from_user.first_name
-    us_sname = message.from_user.last_name
-    username = message.from_user.username
-    db_table_val(user_id=us_id, user_name=us_name, user_surname=us_sname, username=username)
     
 @bot.callback_query_handler(func=lambda call:True)
 def menu_answer(call):
